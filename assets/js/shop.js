@@ -2,6 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.getElementById("productGrid");
+    if (!grid) return;
+
     const cards = Array.from(grid.querySelectorAll(".product-card"));
     const resultCount = document.getElementById("resultCount");
     const noResults = document.getElementById("noResults");
@@ -11,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const priceInputs = document.querySelectorAll('input[name="price"]');
     const sortSelect = document.getElementById("sortSelect");
     const clearBtn = document.getElementById("clearFilters");
+
+    if (!searchInput || !resultCount || !noResults || !sortSelect || !clearBtn) return;
 
     // ---------- Collapsible filter groups ----------
     document.querySelectorAll(".filter-title").forEach((title) => {
@@ -26,13 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeSidebarBtn = document.getElementById("closeSidebar");
 
     function openSidebar() {
-        sidebar.classList.add("open");
-        backdrop.classList.add("open");
+        sidebar?.classList.add("open");
+        backdrop?.classList.add("open");
     }
 
     function closeSidebar() {
-        sidebar.classList.remove("open");
-        backdrop.classList.remove("open");
+        sidebar?.classList.remove("open");
+        backdrop?.classList.remove("open");
     }
 
     openSidebarBtn?.addEventListener("click", openSidebar);
@@ -89,8 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.value = "";
         categoryInputs.forEach((el) => (el.checked = false));
         priceInputs.forEach((el) => (el.checked = false));
-        document.querySelector('input[name="productType"][value="all"]').checked = true;
-        document.querySelector('input[name="availability"][value="all"]').checked = true;
+        document.querySelector('input[name="productType"][value="all"]')?.click();
+        document.querySelector('input[name="availability"][value="all"]')?.click();
         applyFilters();
     });
 
