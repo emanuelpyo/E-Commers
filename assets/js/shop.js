@@ -1,5 +1,3 @@
-// ================= SHOP PAGE INTERACTIONS =================
-
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.getElementById("productGrid");
     if (!grid) return;
@@ -16,14 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!searchInput || !resultCount || !noResults || !sortSelect || !clearBtn) return;
 
-    // ---------- Collapsible filter groups ----------
     document.querySelectorAll(".filter-title").forEach((title) => {
         title.addEventListener("click", () => {
             title.closest(".filter-group").classList.toggle("collapsed");
         });
     });
 
-    // ---------- Mobile sidebar drawer ----------
     const sidebar = document.getElementById("shopSidebar");
     const backdrop = document.getElementById("sidebarBackdrop");
     const openSidebarBtn = document.getElementById("filterTrigger");
@@ -43,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     closeSidebarBtn?.addEventListener("click", closeSidebar);
     backdrop?.addEventListener("click", closeSidebar);
 
-    // ---------- Wishlist heart toggle ----------
     grid.addEventListener("click", (e) => {
         const heart = e.target.closest(".wishlist-icon");
         if (heart) {
@@ -51,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ---------- Filtering ----------
     function getCheckedValues(nodeList) {
         return Array.from(nodeList)
             .filter((el) => el.checked)
@@ -98,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
         applyFilters();
     });
 
-    // ---------- Sorting ----------
     function applySort() {
         const value = sortSelect.value;
         const sorted = [...cards].sort((a, b) => {
@@ -112,6 +105,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sortSelect.addEventListener("change", applySort);
 
-    // Initial count
     applyFilters();
 });
