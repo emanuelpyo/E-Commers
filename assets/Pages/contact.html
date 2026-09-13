@@ -37,46 +37,53 @@
         </nav>
 
         <div class="nav-icons">
-          <i class="ri-search-line" id="search-toggle"></i>
-          <i class="ri-user-line"></i>
-          <i class="ri-shopping-bag-line"></i>
+          <button type="button" aria-label="Search" id="search-toggle">
+            <i class="ri-search-line"></i>
+          </button>
+
+          <button type="button" aria-label="Account">
+            <i class="ri-user-line"></i>
+          </button>
+
+          <button type="button" aria-label="Shopping bag">
+            <i class="ri-shopping-bag-line"></i>
+          </button>
         </div>
 
-        <div id="menu">
+        <button type="button" id="menu" aria-label="Open menu">
           <i class="ri-menu-line"></i>
-        </div>
+        </button>
       </div>
     </header>
 
     <!-- KONTEN -->
     <main>
-        <section class="contact-section">
-            <div class="contact-content">
+      <section class="contact-section">
+        <div class="contact-content">
+          <h1>Let's Work Together</h1>
 
-                <h1>Let's Work Together</h1>
+          <p class="contact-description">
+            Interested in working with CATE STUDIO for your brand or event? Get
+            in touch with us and let’s create something together.
+          </p>
 
-                <p class="contact-description">
-                    Interested in working with CATE STUDIO for your brand or event?
-                    Get in touch with us and let’s create something together.
-                </p>
-
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <input type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Enter Your Email"
-                                required />
-                    </div>
-
-                    <button type="submit" class="contact-button">
-                        Send</button>
-                </form>
-
-                <p class="form-massage" id="form-massage"></p>
-
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter Your Email"
+                required
+              />
             </div>
-        </section>
+
+            <button type="submit" class="contact-button">Send</button>
+          </form>
+
+          <p class="form-massage" id="form-massage"></p>
+        </div>
+      </section>
     </main>
 
     <footer>
