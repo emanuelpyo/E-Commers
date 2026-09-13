@@ -87,8 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.value = "";
         categoryInputs.forEach((el) => (el.checked = false));
         priceInputs.forEach((el) => (el.checked = false));
-        document.querySelector('input[name="productType"][value="all"]')?.click();
-        document.querySelector('input[name="availability"][value="all"]')?.click();
         applyFilters();
     });
 
@@ -98,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (value === "price-asc") return a.dataset.price - b.dataset.price;
             if (value === "price-desc") return b.dataset.price - a.dataset.price;
             if (value === "name-asc") return a.dataset.name.localeCompare(b.dataset.name);
-            return 0; // "featured" = original order
+            return 0;
         });
         sorted.forEach((card) => grid.appendChild(card));
     }
