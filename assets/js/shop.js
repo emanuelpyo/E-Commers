@@ -15,16 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  function renderProducts() {
+  const sidebar = document.getElementById("shopSidebar");
+  const backdrop = document.getElementById("sidebarBackdrop");
+  const openSidebarBtn = document.getElementById("filterTrigger");
+  const closeSidebarBtn = document.getElementById("closeSidebar");
+
+  function renderProducts(productList) {
     grid.innerHTML = "";
 
-    products.forEach((product) => {
+    productList.forEach((product) => {
       const card = document.createElement("div");
 
       card.className = "product-card";
-      card.dataset.category = product.category;
-      card.dataset.price = product.price;
-      card.dataset.name = product.name;
+      card.dataset.id = product.id;
 
       card.innerHTML = `
         <div class="product-image">
@@ -47,20 +50,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  renderProducts();
+  function getCheckedValues(nodeList) {
+    return Array.from(nodeList)
+      .filter((input) => input.checked)
+      .map((input) => input.value);
+  }
 
-  const cards = Array.from(grid.querySelectorAll(".product-card"));
+  function getFilteredProducts() {
+    const search = searchInput.value.trim().toLowerCase();
+    const selectedCategories = getCheckedValues(categoryInputs);
+    const priceChecked = Array.from(priceInputs).find((input) => input.checked);
+
+    const [min, max] = priceChecked
+      ? priceChecked.value.split("-").map(Number)
+      : [null, null];
+
+    return products.filter((product) => {
+      const matchesSearch =
+        !search || product.name.toLowerCase().includes(search);
+
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.includes(product.category);
+
+      const matchesPrice =
+        !priceChecked || (product.price >= min && product.price <= max);
+
+      return matchesSearch && matchesCategory && matchesPrice;
+    });
+  }
+
+  function getSortedProducts(productList) {
+    const value = sortSelect.value;
+    const sortedProducts = [...productList];
+
+    if (value === "price-asc") {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    }
+
+    if (value === "price-desc") {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    }
+
+    if (value === "name-asc") {
+      sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    return sortedProducts;
+  }
+
+  function updateProducts() {
+    const filteredProducts = getFilteredProducts();
+    const sortedProducts = getSortedProducts(filteredProducts);
+
+    renderProducts(sortedProducts);
+
+    resultCount.textContent = sortedProducts.length;
+    noResults.hidden = sortedProducts.length !== 0;
+  }
 
   document.querySelectorAll(".filter-title").forEach((title) => {
     title.addEventListener("click", () => {
       title.closest(".filter-group").classList.toggle("collapsed");
     });
   });
-
-  const sidebar = document.getElementById("shopSidebar");
-  const backdrop = document.getElementById("sidebarBackdrop");
-  const openSidebarBtn = document.getElementById("filterTrigger");
-  const closeSidebarBtn = document.getElementById("closeSidebar");
 
   function openSidebar() {
     sidebar?.classList.add("open");
@@ -84,82 +137,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function getCheckedValues(nodeList) {
-    return Array.from(nodeList)
-      .filter((input) => input.checked)
-      .map((input) => input.value);
-  }
-
-  function applyFilters() {
-    const search = searchInput.value.trim().toLowerCase();
-    const selectedCategories = getCheckedValues(categoryInputs);
-    const priceChecked = Array.from(priceInputs).find((input) => input.checked);
-
-    const [min, max] = priceChecked
-      ? priceChecked.value.split("-").map(Number)
-      : [null, null];
-
-    let visibleCount = 0;
-
-    cards.forEach((card) => {
-      const name = card.dataset.name.toLowerCase();
-      const category = card.dataset.category;
-      const price = Number(card.dataset.price);
-
-      const matchesSearch = !search || name.includes(search);
-      const matchesCategory =
-        selectedCategories.length === 0 ||
-        selectedCategories.includes(category);
-      const matchesPrice = !priceChecked || (price >= min && price <= max);
-
-      const isVisible = matchesSearch && matchesCategory && matchesPrice;
-
-      card.style.display = isVisible ? "" : "none";
-
-      if (isVisible) {
-        visibleCount++;
-      }
-    });
-
-    resultCount.textContent = visibleCount;
-    noResults.hidden = visibleCount !== 0;
-  }
-
-  function applySort() {
-    const value = sortSelect.value;
-
-    const sorted = [...cards].sort((a, b) => {
-      if (value === "price-asc") {
-        return Number(a.dataset.price) - Number(b.dataset.price);
-      }
-
-      if (value === "price-desc") {
-        return Number(b.dataset.price) - Number(a.dataset.price);
-      }
-
-      if (value === "name-asc") {
-        return a.dataset.name.localeCompare(b.dataset.name);
-      }
-
-      return 0;
-    });
-
-    sorted.forEach((card) => {
-      grid.appendChild(card);
-    });
-  }
-
-  searchInput.addEventListener("input", applyFilters);
+  searchInput.addEventListener("input", updateProducts);
 
   categoryInputs.forEach((input) => {
-    input.addEventListener("change", applyFilters);
+    input.addEventListener("change", updateProducts);
   });
 
   priceInputs.forEach((input) => {
-    input.addEventListener("change", applyFilters);
+    input.addEventListener("change", updateProducts);
   });
 
-  sortSelect.addEventListener("change", applySort);
+  sortSelect.addEventListener("change", updateProducts);
 
   clearBtn.addEventListener("click", () => {
     searchInput.value = "";
@@ -174,9 +162,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sortSelect.value = "featured";
 
-    applySort();
-    applyFilters();
+    updateProducts();
   });
 
-  applyFilters();
+  updateProducts();
 });
