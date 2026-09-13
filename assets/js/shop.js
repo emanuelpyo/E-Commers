@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="product-info">
           <h4>${product.name}</h4>
           <p>Rp ${product.price.toLocaleString("id-ID")}</p>
-          <a href="#" class="btn-buy">Buy</a>
+          <a href="product.html?slug=${product.slug}" class="btn-buy">Buy</a>
         </div>
       `;
 
