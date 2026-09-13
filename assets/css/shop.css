@@ -1,11 +1,11 @@
 
-.shop-Pages .shop-hero {
+.shop-page .shop-hero {
   padding: 160px 0 40px;
   text-align: left;
   border-bottom: 1px solid var(--shop-line);
 }
 
-.shop-Pages .shop-hero .subtitle {
+.shop-page .shop-hero .subtitle {
   display: inline-block;
   font-family: "Inter", sans-serif;
   font-size: 13px;
@@ -14,7 +14,7 @@
   margin-bottom: 12px;
 }
 
-.shop-Pages .shop-hero h1 {
+.shop-page .shop-hero h1 {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
   font-size: 44px;
@@ -22,33 +22,33 @@
   margin: 0 0 14px;
 }
 
-.shop-Pages .shop-hero .breadcrumb {
+.shop-page .shop-hero .breadcrumb {
   font-family: "Inter", sans-serif;
   font-size: 13px;
   color: var(--shop-muted);
 }
 
-.shop-Pages .shop-hero .breadcrumb a {
+.shop-page .shop-hero .breadcrumb a {
   color: var(--shop-muted);
   text-decoration: none;
 }
 
-.shop-Pages .shop-hero .breadcrumb span {
+.shop-page .shop-hero .breadcrumb span {
   color: var(--shop-ink);
 }
 
-.shop-Pages .shop {
+.shop-page .shop {
   padding: 48px 0 100px;
 }
 
-.shop-Pages .shop-layout {
+.shop-page .shop-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 48px;
   align-items: start;
 }
 
-.shop-Pages .filter-trigger {
+.shop-page .filter-trigger {
   display: none;
   align-items: center;
   gap: 8px;
@@ -61,25 +61,25 @@
   margin-bottom: 24px;
 }
 
-.shop-Pages .sidebar-backdrop {
+.shop-page .sidebar-backdrop {
   display: none;
 }
 
-.shop-Pages .shop-sidebar {
+.shop-page .shop-sidebar {
   border: 1px solid var(--shop-line);
   padding: 24px;
   position: sticky;
   top: 110px;
 }
 
-.shop-Pages .sidebar-head {
+.shop-page .sidebar-head {
   display: none;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
 }
 
-.shop-Pages .search-box {
+.shop-page .search-box {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -88,11 +88,11 @@
   margin-bottom: 28px;
 }
 
-.shop-Pages .search-box i {
+.shop-page .search-box i {
   color: var(--shop-muted);
 }
 
-.shop-Pages .search-box input {
+.shop-page .search-box input {
   border: none;
   outline: none;
   width: 100%;
@@ -101,16 +101,16 @@
   background: transparent;
 }
 
-.shop-Pages .filter-group {
+.shop-page .filter-group {
   border-bottom: 1px solid var(--shop-line);
   padding: 18px 0;
 }
 
-.shop-Pages .filter-group:first-of-type {
+.shop-page .filter-group:first-of-type {
   padding-top: 0;
 }
 
-.shop-Pages .filter-title {
+.shop-page .filter-title {
   width: 100%;
   display: flex;
   align-items: center;
@@ -125,17 +125,17 @@
   padding: 0;
 }
 
-.shop-Pages .filter-title i {
+.shop-page .filter-title i {
   transition: transform 0.25s ease;
   font-size: 18px;
   color: var(--shop-muted);
 }
 
-.shop-Pages .filter-group.collapsed .filter-title i {
+.shop-page .filter-group.collapsed .filter-title i {
   transform: rotate(180deg);
 }
 
-.shop-Pages .filter-body {
+.shop-page .filter-body {
   display: grid;
   gap: 12px;
   margin-top: 16px;
@@ -143,11 +143,11 @@
   transition: grid-template-rows 0.25s ease;
 }
 
-.shop-Pages .filter-group.collapsed .filter-body {
+.shop-page .filter-group.collapsed .filter-body {
   display: none;
 }
 
-.shop-Pages .filter-option {
+.shop-page .filter-option {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -157,33 +157,33 @@
   cursor: pointer;
 }
 
-.shop-Pages .filter-option input {
+.shop-page .filter-option input {
   accent-color: var(--shop-ink);
   width: 16px;
   height: 16px;
   cursor: pointer;
 }
 
-.shop-Pages .clear-filters {
+.shop-page .clear-filters {
   margin-top: 24px;
   width: 100%;
   text-align: center;
 }
 
-.shop-Pages .shop-toolbar {
+.shop-page .shop-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
 }
 
-.shop-Pages .result-count {
+.shop-page .result-count {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   color: var(--shop-muted);
 }
 
-.shop-Pages .sort-box {
+.shop-page .sort-box {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -191,7 +191,7 @@
   font-size: 14px;
 }
 
-.shop-Pages .sort-box select {
+.shop-page .sort-box select {
   border: 1px solid var(--shop-line);
   padding: 8px 12px;
   font-family: "Inter", sans-serif;
@@ -200,23 +200,23 @@
   cursor: pointer;
 }
 
-.shop-Pages .product-grid {
+.shop-page .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
 
-.shop-Pages .product-card {
+.shop-page .product-card {
   display: block;
 }
 
-.shop-Pages .product-image {
+.shop-page .product-image {
   position: relative;
   overflow: hidden;
   background: var(--shop-surface);
 }
 
-.shop-Pages .product-image img {
+.shop-page .product-image img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
@@ -224,11 +224,11 @@
   transition: transform 0.5s ease;
 }
 
-.shop-Pages .product-card:hover .product-image img {
+.shop-page .product-card:hover .product-image img {
   transform: scale(1.04);
 }
 
-.shop-Pages .product-action {
+.shop-page .product-action {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -242,12 +242,12 @@
     transform 0.25s ease;
 }
 
-.shop-Pages .product-card:hover .product-action {
+.shop-page .product-card:hover .product-action {
   opacity: 1;
   transform: translateX(0);
 }
 
-.shop-Pages .product-action i {
+.shop-page .product-action i {
   width: 34px;
   height: 34px;
   display: flex;
@@ -259,20 +259,20 @@
   cursor: pointer;
 }
 
-.shop-Pages .product-action .wishlist-icon.active {
+.shop-page .product-action .wishlist-icon.active {
   color: #c0392b;
 }
 
-.shop-Pages .product-action .wishlist-icon.active::before {
+.shop-page .product-action .wishlist-icon.active::before {
   content: "\ee0f";
 }
 
-.shop-Pages .product-info {
+.shop-page .product-info {
   padding-top: 14px;
   text-align: left;
 }
 
-.shop-Pages .product-info h4 {
+.shop-page .product-info h4 {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
   font-size: 19px;
@@ -280,14 +280,14 @@
   margin: 0 0 6px;
 }
 
-.shop-Pages .product-info p {
+.shop-page .product-info p {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   color: var(--shop-accent);
   margin: 0 0 10px;
 }
 
-.shop-Pages .btn-buy {
+.shop-page .btn-buy {
   font-family: "Inter", sans-serif;
   font-size: 13px;
   letter-spacing: 0.04em;
@@ -297,7 +297,7 @@
   padding-bottom: 2px;
 }
 
-.shop-Pages .no-results {
+.shop-page .no-results {
   font-family: "Inter", sans-serif;
   color: var(--shop-muted);
   padding: 60px 0;
@@ -305,21 +305,21 @@
 }
 
 @media (max-width: 1024px) {
-  .shop-Pages .product-grid {
+  .shop-page .product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 860px) {
-  .shop-Pages .filter-trigger {
+  .shop-page .filter-trigger {
     display: inline-flex;
   }
 
-  .shop-Pages .shop-layout {
+  .shop-page .shop-layout {
     grid-template-columns: 1fr;
   }
 
-  .shop-Pages .shop-sidebar {
+  .shop-page .shop-sidebar {
     position: fixed;
     top: 0;
     left: 0;
@@ -334,25 +334,25 @@
     border: none;
   }
 
-  .shop-Pages .shop-sidebar.open {
+  .shop-page .shop-sidebar.open {
     transform: translateX(0);
   }
 
-  .shop-Pages .sidebar-head {
+  .shop-page .sidebar-head {
     display: flex;
   }
 
-  .shop-Pages .sidebar-head h3 {
+  .shop-page .sidebar-head h3 {
     font-family: "Cormorant Garamond", serif;
     font-size: 22px;
   }
 
-  .shop-Pages .sidebar-head i {
+  .shop-page .sidebar-head i {
     font-size: 22px;
     cursor: pointer;
   }
 
-  .shop-Pages .sidebar-backdrop.open {
+  .shop-page .sidebar-backdrop.open {
     display: block;
     position: fixed;
     inset: 0;
@@ -362,16 +362,16 @@
 }
 
 @media (max-width: 560px) {
-  .shop-Pages .product-grid {
+  .shop-page .product-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 
-  .shop-Pages .shop-hero h1 {
+  .shop-page .shop-hero h1 {
     font-size: 32px;
   }
 
-  .shop-Pages .shop-toolbar {
+  .shop-page .shop-toolbar {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
