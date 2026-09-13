@@ -151,19 +151,28 @@ header.scrolled {
   cursor: pointer;
 }
 
-.nav-icons i {
+.nav-icons button {
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
   transition: 0.3s;
 }
 
-.nav-icons i:hover {
+.nav-icons button:hover {
   transform: translateY(-3px);
 }
 
 #menu {
   display: none;
-
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
   font-size: 30px;
-
   cursor: pointer;
 }
 
