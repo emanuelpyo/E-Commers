@@ -551,62 +551,6 @@ header.scrolled {
   color: white;
 }
 
-.campaign {
-  height: 70vh;
-
-  background: url("../images/banner.jpg") center/cover;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  text-align: center;
-
-  color: white;
-}
-
-.campaign h2 {
-  font-size: 5rem;
-
-  font-family: "Cormorant Garamond", serif;
-
-  margin: 20px 0;
-}
-
-.campaign span {
-  letter-spacing: 4px;
-}
-
-.campaign p {
-  margin-bottom: 35px;
-}
-
-.gallery {
-  padding: 120px 0;
-}
-
-.gallery-grid {
-  display: grid;
-
-  grid-template-columns: repeat(5, 1fr);
-
-  gap: 20px;
-}
-
-.gallery-grid img {
-  height: 260px;
-
-  object-fit: cover;
-
-  transition: 0.5s;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
-
 .newsletter {
   padding: 120px 0;
 
