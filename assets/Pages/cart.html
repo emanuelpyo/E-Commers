@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Contact | CATE STUDIO</title>
+    <title>Shopping Bag | CATE STUDIO</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -19,19 +20,19 @@
     />
 
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/contact.css" />
+    <link rel="stylesheet" href="../css/cart.css" />
   </head>
 
-  <body class="contact-page">
+  <body class="cart-page">
     <header id="header">
       <div class="container nav">
-        <a href="../../index.html" class="logo"> CATE STUDIO </a>
+        <a href="../../index.html" class="logo">CATE STUDIO</a>
 
         <nav>
           <ul class="nav-links">
             <li><a href="../../index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
@@ -45,43 +46,58 @@
             <i class="ri-user-line"></i>
           </button>
 
-          <button type="button" aria-label="Shopping bag">
+          <a href="cart.html" aria-label="Shopping bag">
             <i class="ri-shopping-bag-line"></i>
-          </button>
+          </a>
         </div>
 
-        <a href="cart.html" aria-label="Shopping bag">
-          <i class="ri-shopping-bag-line"></i>
-        </a>
+        <button type="button" id="menu" aria-label="Open menu">
+          <i class="ri-menu-line"></i>
+        </button>
       </div>
     </header>
 
-    <!-- KONTEN -->
     <main>
-      <section class="contact-section">
-        <div class="contact-content">
-          <h1>Let's Work Together</h1>
+      <section class="cart-section">
+        <div class="container">
+          <div class="cart-header">
+            <span class="section-label">YOUR BAG</span>
+            <h1>Shopping Bag</h1>
+            <p>Review your selected items before checkout.</p>
+          </div>
 
-          <p class="contact-description">
-            Interested in working with CATE STUDIO for your brand or event? Get
-            in touch with us and let’s create something together.
-          </p>
-
-          <form class="contact-form" id="contact-form">
-            <div class="form-group">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter Your Email"
-                required
-              />
+          <div class="cart-layout">
+            <div class="cart-items" id="cartItems">
+              <!-- Cart items will be rendered by JavaScript -->
             </div>
 
-            <button type="submit" class="contact-button">Send</button>
-          </form>
+            <aside class="cart-summary">
+              <h2>Order Summary</h2>
 
-          <p class="form-massage" id="form-massage"></p>
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">Rp 0</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Shipping</span>
+                <span>Calculated at checkout</span>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-total">
+                <span>Total</span>
+                <span id="cartTotal">Rp 0</span>
+              </div>
+
+              <button type="button" class="checkout-button">Checkout</button>
+
+              <a href="shop.html" class="continue-shopping">
+                Continue Shopping
+              </a>
+            </aside>
+          </div>
         </div>
       </section>
     </main>
@@ -103,8 +119,8 @@
         <div>
           <h4>Support</h4>
           <a href="#">FAQ</a>
-          <a href="assets/pages/shipping.html">Shipping</a>
-          <a href="assets/pages/contact.html">Contact</a>
+          <a href="#">Shipping</a>
+          <a href="contact.html">Contact</a>
         </div>
 
         <div>
@@ -117,6 +133,7 @@
     </footer>
 
     <script src="../js/script.js"></script>
-    <script src="../js/contact.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/cartPage.js"></script>
   </body>
 </html>

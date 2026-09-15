@@ -192,7 +192,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   cartButton.addEventListener("click", () => {
-    console.log("Add to bag:", product.name, "Quantity:", quantity);
+    const cart = getCart();
+
+    const existingProduct = cart.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      existingProduct.quantity += quantity;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        quantity: quantity,
+      });
+    }
+
+    saveCart(cart);
+
+    console.log("Cart updated:", cart);
   });
 
   document.querySelectorAll(".meta-toggle").forEach((button) => {
